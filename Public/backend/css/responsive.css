@@ -1,0 +1,70 @@
+/* tablet */
+@media (max-width: 1023px){
+    .content__profile-wrap{
+        flex-direction: column-reverse;
+    }
+
+    .content__profile-form-edit-wrap,
+    .content__profile-info{
+        margin: 20px 0px 0;
+    }
+
+    .content__profile-info,
+    .content__profile-form-edit-wrap{
+        width: 100%;
+    }
+
+    .header__top,
+    .aside header{
+        display: none;
+    }
+
+    .aside__menu-wrapper{
+        height: 100%;
+    }
+
+    :root{
+        --width-aside: 0px;
+    }
+
+    .header__top-mobile{
+        display: flex;
+    }
+
+    .header__top,
+    .footer
+    {
+        margin-left: 0;
+    }
+
+    .content__user-list,
+    .content__home{
+        margin: 116px 0px 0px 0;
+    }
+
+    .header__content-wrap{
+        left: 0;
+    }
+
+    .user__list-table tbody td:nth-child(4),
+    .user_list-action > a:not(.user__list-action.info),
+    .user__list-table thead th:nth-child(4){
+        display: none;
+    }
+}
+
+@media (max-width: 767px){
+    .user__list-table th:nth-child(2),
+    .user__list-table tbody td:nth-child(2){
+        display: none;
+    }
+
+    .form__group{
+        flex-direction: column;
+    }
+
+    .content__profile-form-body .form-control{
+        max-width: 100%;
+    }
+}
+/* end tablet */

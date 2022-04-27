@@ -1,0 +1,28 @@
+RewriteEngine on
+RewriteCond %{HTTPS} !=on [NC]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+ErrorDocument 404 https://tuan.vn/bilutvs/bao-loi
+
+RewriteRule ^phim/([a-zA-Z0-9-_]+) index.php?module=frontend&controller=film&url=$1
+RewriteRule ^xem-phim/([a-zA-Z0-9-_]+)-tap-([0-9]+) index.php?module=frontend&controller=film&action=player&url=$1&episode=$2
+RewriteRule ^loc-phim/(.*)(.*)(.*)(.*)(.*) index.php/?module=frontend&controller=filter&order=$1&type=$2&cate=$3&country=$4&year=$5 [QSA]
+RewriteRule ^tim-kiem/(.*) index.php/?module=frontend&controller=filter&action=search&q=$1 [QSA]
+RewriteRule ^phim-le/([a-zA-Z0-9-_]+) index.php?controller=filter&action=short_film&slug=$1 [L]
+RewriteRule ^phim-le index.php?controller=filter&action=short_film
+RewriteRule ^phim-bo/([a-zA-Z0-9-_]+) index.php?controller=filter&action=long_film&slug=$1 [L]
+RewriteRule ^phim-bo index.php?controller=filter&action=long_film
+RewriteRule ^nam/([a-zA-Z0-9-_]+) index.php?controller=filter&action=year&slug=$1
+RewriteRule ^the-loai/([a-zA-Z0-9-_]+)$ index.php?controller=filter&action=category&slug=$1
+RewriteRule ^quoc-gia/([a-zA-Z0-9-_]+) index.php?controller=filter&action=country&slug=$1
+RewriteRule ^phim-chieu-rap index.php?controller=filter&action=chieu_rap
+RewriteRule ^phim-moi index.php?controller=filter&action=new_film
+RewriteRule ^tu-phim index.php?controller=home&action=tu_phim
+RewriteRule ^bao-tri index.php?controller=maintenance&action=close
+RewriteRule ^bao-loi index.php?controller=maintenance&action=error
+
+##RewriteCond %{REQUEST_URI} !(/$|\.) 
+##RewriteRule (.*) %{REQUEST_URI}/ [R=301,L]
+
+##RewriteRule ^loc-phim/sort?order=([0-9]?)&type=([0-9]?)&cate=([0-9]?)&country=([0-9]?)&year=([0-9]+?)$ index.php/?module=frontend&controller=filter&action=index&order=$1&type=$2&cate=$3&country=$4&year=$5
+##RewriteRule ^loc-phim/?order=([0-9]?)&type=&cate=&country=&year=$ index.php/?module=frontend&controller=filter&action=index&order=$1
+#RewriteRule ^loc-phim/ccorder=([0-9]?)&type=([0-9]?)&cate=([0-9]?)&country=([0-9]?)&year=([0-9]*)$ index.php/?module=frontend&controller=filter&order=$1&type=$2&cate=$3&country=$4&year=$5
